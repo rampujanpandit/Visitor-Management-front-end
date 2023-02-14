@@ -1,0 +1,215 @@
+<!-- <div class="col-md-6 offset-md-3" >
+<h3> Add New Visitor</h3>
+<form (ngSubmit) = "onSubmit()">
+
+    <div class="form-group">
+        <label> Id </label>
+        <input type="text" class="form-control" id="id" required="required"
+        [(ngModel)] = "visitor.id" name = "id">
+    </div>
+
+    <div class="form-group">
+        <label> Name </label>
+        <input type="text" class="form-control" id="fullName" required="required"
+        [(ngModel)] = "visitor.fullName" name = "fullName">
+    </div>
+
+    <div class="form-group">
+        <label> Gender </label>
+        <input type="text" class="form-control" id="gender" required="required"
+        [(ngModel)] = "visitor.gender" name ="gender">
+    </div>
+
+    <div class="form-group">
+        <label> Mobile Number </label>
+        <input type="text" class="form-control" id="mobileNo" required="required"
+        [(ngModel)] = "visitor.mobileNo" name ="mobileNo">
+    </div>
+
+    <div class="form-group">
+        <label> Email </label>
+        <input type="email" class="form-control" id="emailId" required="required"
+        [(ngModel)] = "visitor.emailId" name ="emailId">
+    </div>
+
+    <div class="form-group">
+        <label> Address </label>
+        <input type="text" class="form-control" id="address" required="required"
+        [(ngModel)] = "visitor.address" name ="address">
+    </div>
+
+    <div class="form-group">
+        <label> Visiting-Purpose </label>
+        <input type="text" class="form-control" id="purposeToVisit" required="required"
+        [(ngModel)] = "visitor.purposeToVisit" name ="purposeToVisit">
+    </div>
+
+    <div class="form-group">
+        <label> Visiting-Date </label>
+        <input type="datetime-local" class="form-control" id="visitingDate" required="required"
+        [(ngModel)] = "visitor.visitingDate" name ="visitingDate">
+    </div>
+
+
+    <button class="btn btn-success" type="submit">submit</button>
+
+</form>
+</div> -->
+
+
+<!-- <form [formGroup]="surveyForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label>Name:</label>
+      <input id="name" type="text" formControlName="fName" class="form-control" [ngClass]="{'is-invalid':submitted && f.fName.errors}"/>
+      <div *ngIf="submitted && f.fName.errors" class="form-control">first name is required</div>
+    </div>
+  </form> -->
+
+  <!-- <div class="col-md-6-offset-md-3">
+    <form (ngSubmit)="Search">
+    <div class="form-group">
+        <input  type="text" class="form-control" 
+         placeholder="search visitor using mobile number "#box>
+        <button (click)="box.value" mat-raised-button color="primary">Search</button>
+    </div>
+  </form>
+ </div> -->
+
+ 
+
+
+   <div class="col-md-6-offset-md-3" >
+    <h3> Add New Visitor</h3>
+    <!-- <input type="text" class="form-control" placeholder="mobile number"#box>
+    <button (click)="Search(box.value)" mat-raised-button > Search </button> -->
+    <form [formGroup]="registerForm" (ngSubmit) = "onSubmit()">
+    
+        <div class="form-group">
+            <label for="fullName"> Name </label>
+            <input type="text" class="form-control" id="fullName" formControlName="fullName">
+           
+            <div class="form-text" *ngIf="fullName.errors?.['required'] && (fullName.touched || fullName.dirty)">
+                Name is required.
+            </div>
+            <div class="form-text" *ngIf="fullName.errors?.['minlength'] && (fullName.touched || fullName.dirty)">
+                Name is too short
+            </div>
+            <div class="form-text" *ngIf="fullName.errors?.['pattern'] && (fullName.touched || fullName.dirty)">
+                Name should start with Alphabets
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="gender"> Gender </label>
+            <input type="text" class="form-control" id="gender" formControlName="gender">
+            
+
+            <div class="form-text" *ngIf="gender.errors?.['required'] && (gender.touched || gender.dirty)">
+                Gender is required.
+            </div>
+            <div class="form-text" *ngIf="gender.errors?.['minlength'] && (gender.touched || gender.dirty)">
+                Gender is too short
+            </div>
+            <div class="form-text" *ngIf="gender.errors?.['pattern'] && (gender.touched || gender.dirty)">
+                Gender should start with Alphabets
+            </div>
+        </div>
+    
+        <div class="form-group" >
+            <label for="mobileNo"> Mobile Number </label>
+            <input type="text" class="form-control" id="mobileNo" formControlName="mobileNo">
+           
+
+            <div class="form-text" 
+            *ngIf="mobileNo.errors?.['required'] && (mobileNo.touched || mobileNo.dirty)">
+                Mobile Number is required.
+            </div>
+
+            <div class="form-text" *ngIf="mobileNo.errors?.['required'] && (mobileNo.touched || mobileNo.dirty)">
+                Mobile Number is required
+            </div>
+            <div class="form-text" *ngIf="mobileNo.errors?.['minlength'] && (mobileNo.touched || mobileNo.dirty)">
+                Mobile Number shuould be 10 digit
+            </div>
+            <div class="form-text" *ngIf="mobileNo.errors?.['maxlength'] && (mobileNo.touched || mobileNo.dirty)">
+                Mobile Number is too long
+            </div>
+
+            <div class="form-text" 
+            *ngIf="mobileNo.errors?.['pattern'] && (mobileNo.touched || mobileNo.dirty)">
+                Mobile Number should start with only digit
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="emailId"> Email </label>
+            <input type="email" class="form-control" id="emailId" formControlName="emailId">
+            
+
+            <div class="form-text" 
+            *ngIf="emailId.errors?.['email'] && (emailId.touched || emailId.dirty)">
+                 please give valid email id.
+            </div>
+
+            <div class="form-text"
+                *ngIf ="emailId.errors?.['required'] && (emailId.touched || emailId.dirty)">
+                 Requird Email Id.
+            </div>
+
+            <div class="form-text"
+            *ngIf="emailId.errors?.['pattern'] && (emailId.touched || emailId.dirty)">
+             Email should start with character.
+        </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="address"> Address </label>
+            <input type="text" class="form-control" id="address" formControlName="address">
+            
+            <div class="form-text" 
+            *ngIf="address.errors?.['required'] && (address.touched || address.dirty)">
+                Address is required.
+            </div>
+
+            <div class="form-text" 
+            *ngIf="address.errors?.['minlength'] && (address.touched || address.dirty)">
+                Address shuould be minimum 5 character.
+            </div>
+
+            <div class="form-text" 
+            *ngIf="address.errors?.['maxlength'] && (address.touched || address.dirty)">
+                Address shuould be maximum 20 character.
+            </div>
+
+            <div class="form-text" 
+            *ngIf="address.errors?.['pattern'] && (address.touched || address.dirty)">
+                 Address should start with character. 
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="purposeToVisit"> Visiting-Purpose </label>
+            <input type="text" class="form-control" id="purposeToVisit" formControlName="purposeToVisit">
+          
+
+            <div class="form-text" 
+            *ngIf="purposeToVisit.errors?.['required'] && (purposeToVisit.touched || purposeToVisit.dirty)">
+                Visiting purpose is required.
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label for="visitingDate"> Visiting-Date </label>
+            <input type="datetime-local" class="form-control" id="visitingDate" formControlName="visitingDate">
+           
+
+            <div class="form-text" 
+            *ngIf="visitingDate.errors?.['required'] && (visitingDate.touched || visitingDate.dirty)">
+                Date is required.
+            </div>
+        </div>
+    
+    
+        <button class="btn btn-success" type="submit">submit</button>
+    </form>
+    </div>

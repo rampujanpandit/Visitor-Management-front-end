@@ -1,0 +1,244 @@
+<!-- <h1> Visitor List</h1> -->
+
+
+
+ 
+<!-- <div class="search-box">
+  <input class="input" type="text" placeholder="search visitors" name="search" [(ngModel)]="name" (ngModelChange)="sendData($event)">
+</div> -->
+
+
+<!-- Search by date -->
+  <!-- <div class="daterange">
+  <div style="height: 5vh; width: 100vw; margin-top: 20px;">
+      <label for="from">From</label>
+        <input type="date" id="from" #c1 placeholder="Enter Begining date" style="margin-right: 10px;">
+      <label for="to"> To </label>
+        <input type="date" id="to" #c2 placeholder="Enter Ending date" style="margin-right: 10px;">
+        <button mat-raised-button color="Accent" (click)="getDateUsingField(c1.value,c2.value)">Search</button>
+     </div>
+  </div> -->
+
+  
+<!-- Search By Field -->
+
+<!-- <div class="daterange">
+  <div style="height: 8vh; width: 100vw; margin-top: 20px;">
+       <label for="name">Name : </label>
+             <input type="text" #box1 id="name" placeholder="Enter name" style="margin-right: 10px;">
+        <label for="email">Email :</label>
+             <input type="text" #box2 id="email" placeholder="Enter Email" style="margin-right: 10px;">
+        <label for="purpose">Purpose : </label>
+             <input type="text" #box3 id="purpose" placeholder="Enter purpose" style="margin-right: 10px;">
+        <label for="visitingDate"> Visiting Date : </label>
+             <input type="date" #box4 id="visitingDate" placeholder="Enter Visiting Date" style="margin-right: 10px;">
+        
+             <button mat-raised-button (click)="getDataUsingField(box1.value,box2.value,box3.value,box4.value)">Search</button>
+      </div>
+</div> -->
+
+<!-- Main Table -->
+
+<!-- <div class="container">
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>SL.NO</th>
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Mobile Nu</th>
+            <th>Email</th>
+            <th>Purpose</th>
+            <th>Visiting Date</th>
+            <th>Status</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let visitor of visitors let i=index "> 
+            <td>{{(tP*(pages-1))+(i+1) }}</td>
+
+            <td>{{ visitor.fullName }}</td>
+            <td>{{ visitor.gender }}</td>
+            <td>{{ visitor.address }}</td>
+            <td>{{ visitor.mobileNo }}</td>
+            <td>{{ visitor.emailId }}</td>
+            <td>{{ visitor.purposeToVisit }}</td>
+            <td>{{ visitor.visitingDate }}</td>
+
+             <td><div *ngIf="(visitor.visitingDate)<(changeFormate) else elseBLock" style=" background-color:
+             rgb(175, 11, 49); border: 1px solid rgb(24, 24, 24); border-radius: 20px; margin: auto;">  expire</div>
+
+
+              <ng-template #elseBLock><div style="height: 4.2vh; width: 5.2vw; background-color:
+                rgb(8, 137, 29); border: 1px solid rgb(5, 5, 5); border-radius: 20px; margin: auto;">Valid</div></ng-template></td>
+            <td>
+                <button (click) = "updateVisitor(visitor.id)"class = "btn btn-info"> Update </button>               
+                <button (click) = "deleteVisitor(visitor.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete </button>
+            </td>
+        </tr>
+    </tbody><main></main>
+</table>
+</div> -->
+
+
+<!-- Pagination  -->
+
+  <!-- <div class="pagination">
+    <div class="qwe"><button (click)="nextprev('minus')">Previous</button></div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">{{pages}}</div>
+    </div>
+    <div class="qwe2"><button (click)="nextprev('add')">Next</button></div>
+    <div class="qwe1 qwe3">
+    
+        <div  style="height: 20px; width: 40px; margin: 9px 26px;">{{pages}}</div>
+    </div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">of</div>
+    </div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">{{tP}}</div>
+    </div>
+  
+    <input type="number" #data class="qwe4" placeholder="Search">
+    <div class="qwe2">    
+        <button class="button" (click)="Search(data.value)" >search</button>
+    </div>
+
+  </div> -->
+
+  <!-- <h1> Visitor List</h1> -->
+
+
+
+ <div class="s10">
+<div class="search-box">
+  <input class="input" type="text" placeholder="search visitors" name="search" [(ngModel)]="name" (ngModelChange)="sendData($event)">
+</div>
+
+
+<!-- Search by date -->
+  <div class="daterange">
+  <div style="height: 5vh; width: 100vw; margin-top: 20px;">
+      <label for="from">From</label>
+        <input type="date" id="from" #c1 placeholder="Enter Begining date" style="margin-right: 10px;">
+      <label for="to"> To </label>
+        <input type="date" id="to" #c2 placeholder="Enter Ending date" style="margin-right: 10px;">
+        <button mat-raised-button color="Accent" (click)="getDateUsingField(c1.value,c2.value)">Search</button>
+     </div>
+    </div>
+  </div>
+
+  
+<!-- Search By Field -->
+
+<div class="daterange form-heading" style="border: 2px solid; border-radius: 14px;">
+  <h4 class="text-secondary fst-italic">search by any field</h4>
+  <div style="height: 8vh; width: 100vw; margin-top: 20px;">
+       <label for="name">Name : </label>
+             <input type="text" #box1 id="name" placeholder="Enter name" style="margin-right: 10px;">
+        <label for="email">Email :</label>
+             <input type="text" #box2 id="email" placeholder="Enter Email" style="margin-right: 10px;">
+        <label for="purpose">Purpose : </label>
+             <input type="text" #box3 id="purpose" placeholder="Enter purpose" style="margin-right: 10px;">
+        <label for="visitingDate"> Visiting Date : </label>
+       
+        <input type="date" #box4 id="visitingDate" placeholder="Enter Visiting Date" style="margin-right: 10px;">  
+        <button mat-raised-button (click)="getDataUsingField(box1.value,box2.value,box3.value,box4.value)">Search</button>
+        
+      </div>
+</div>
+
+
+
+<!-- Main Table -->
+
+<div class="table table-success table-striped" style="border: 2px solid black;
+border-radius: 14px;">
+
+<table class="table table-hover max-auto">
+    <thead>
+        <tr>
+            <th>SL.NO</th>
+            <!-- <th>Visitor Id</th> -->
+            <th>Name</th>
+            <th>Gender</th>
+            <th>Address</th>
+            <th>Mobile Nu</th>
+            <th>Email</th>
+            <th>Purpose</th>
+            <th>Visiting Date</th>
+            <th>Status</th>
+            <th> Actions </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let visitor of visitors let i=index "> 
+            <td>{{(tP*(pages-1))+(i+1) }}</td>
+            <!-- <td>{{visitor.id}}</td> -->
+            <td>{{ visitor.fullName }}</td>
+            <td>{{ visitor.gender }}</td>
+            <td>{{ visitor.address }}</td>
+            <td>{{ visitor.mobileNo }}</td>
+            <td>{{ visitor.emailId }}</td>
+            <td>{{ visitor.purposeToVisit }}</td>
+            <td>{{ visitor.visitingDate }}</td>
+
+             <td><div *ngIf="(visitor.visitingDate)<(changeFormate) else elseBLock" style=" background-color:
+             red; border: 1px solid black; border-radius: 20px; margin: auto;">exp</div>
+
+
+              <ng-template #elseBLock><div style="height: 4.2vh; width: 5.2vw; background-color:
+                green; border: 1px solid black; border-radius: 20px; margin: auto;">Valid</div></ng-template></td>
+            <td>
+                <button (click) = "updateVisitor(visitor.id)"class = "btn btn-info"> Update </button>               
+                <button (click) = "deleteVisitor(visitor.id)" class = "btn btn-danger" style="margin-left: 10px"> Delete </button>
+                
+            </td>
+        </tr>
+    </tbody><main></main>
+</table>
+
+
+</div>
+
+
+<!-- Pagination  -->
+
+  <div class="pagination">
+    <div class="qwe"><button (click)="nextprev('minus')">Previous</button></div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">{{pages}}</div>
+    </div>
+    <div class="qwe2"><button (click)="nextprev('add')">Next</button></div>
+    <div class="qwe1 qwe3">
+    
+        <div  style="height: 20px; width: 40px; margin: 9px 26px;">{{pages}}</div>
+    </div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">of</div>
+    </div>
+    <div class="qwe1">
+        <div style="height: 20px; width: 40px; margin: 9px 26px;">{{tP}}</div>
+    </div>
+  
+    <input type="number" #data class="qwe4" placeholder="Search">
+    <div class="qwe2">    
+        <button class="button" (click)="Search(data.value)" >search</button>
+    </div>
+
+  </div>
+
+  <mat-paginator [length]="100"
+  [pageSize]="10"
+  
+  aria-label="Select page">
+</mat-paginator>
+
+
+    
+
+
+    
